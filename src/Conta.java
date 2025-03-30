@@ -31,6 +31,11 @@ public abstract class Conta implements IConta {
 		contaDestino.depositar(valor);
 	}
 
+	@Override
+	public void consultarEmprestimo(double rendaMensal, double comprometimentoAnual, double score){
+		this.calcularLimiteEmprestimo(rendaMensal, comprometimentoAnual, score);
+	}
+
 	public int getAgencia() {
 		return agencia;
 	}
@@ -48,5 +53,9 @@ public abstract class Conta implements IConta {
 		System.out.println(String.format("Agencia: %d", this.agencia));
 		System.out.println(String.format("Numero: %d", this.numero));
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
+	}
+
+	protected void calcularLimiteEmprestimo(double rendaMensal, double comprometimentoAnual, double score) {
+		Emprestimo.calcularLimite(rendaMensal, comprometimentoAnual, score);
 	}
 }

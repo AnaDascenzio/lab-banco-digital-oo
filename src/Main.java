@@ -13,6 +13,8 @@ public class Main {
 		
 		cc.imprimirExtrato();
 		poupanca.imprimirExtrato();
+
+		cc.calcularLimiteEmprestimo(1500, 10, 900);
 	}
 
 }
